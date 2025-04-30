@@ -1,0 +1,118 @@
+import React from 'react'
+import { QrCode, Moon, Sun } from 'lucide-react';
+// import { Button } from '@/components/ui/button';
+
+const Landing: React.FC = () => {
+  return (
+    <div>
+       {/* Main section */}
+       <div className="text-center ">
+        <h1 className="text-5xl font-bold mb-6 bg-gradient-to-tl from-indigo-800 to-rose-700 text-transparent bg-clip-text">Shorten Your Loooong Links :)</h1>
+              <p className="mt-4 text-gray-400 text-sm sm:text-base max-w-2xl mx-auto">
+              Linkly is an efficient and easy-to-use URL shortening and QR code generation service that streamlines your online experience.
+              </p>
+        {/* Input field */}
+        <div className="mt-10 max-w-2xl mx-auto flex flex-col sm:flex-row items-center gap-4">
+          <input
+            type="text"
+            placeholder="Enter the link here"
+            className="w-full flex-1 rounded-full bg-[#1a1c2c] text-white px-5 py-3 focus:outline-none border border-gray-700"
+          />
+          <button className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-full shadow-xl text-sm">
+            Shorten Now!
+          </button>
+        </div>
+
+        <div className="flex justify-center items-center gap-2 mt-4">
+          <div className="w-5 h-5 rounded-full bg-blue-600"></div>
+          <span className="text-sm text-gray-400">Auto Paste from Clipboard</span>
+        </div>
+
+        <p className="mt-4 text-sm text-gray-400">
+          You can create <span className="text-pink-500 font-semibold">05</span> more links. <span className="underline cursor-pointer text-blue-400">Register</span> now to enjoy Unlimited usage ⚡
+        </p>
+      </div>
+
+      {/* Theme switch and sidebar */}
+      <div className="fixed right-4 top-1/2 transform -translate-y-1/2 space-y-4 hidden sm:block">
+        <button className="border rounded-full px-2 py-1 text-sm flex items-center gap-1">
+          <Sun size={14} /> Light
+        </button>
+        <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full shadow-xl text-sm">
+          Dark Theme
+        </button>
+      </div>
+
+      {/* Table section */}
+      <div className="mt-20 overflow-x-auto">
+        <table className="w-full text-left text-sm text-gray-300">
+          <thead className="bg-[#1a1c2c] text-gray-400">
+            <tr>
+              <th className="p-3">Short Link</th>
+              <th className="p-3">Original Link</th>
+              <th className="p-3">QR Code</th>
+              <th className="p-3">Clicks</th>
+              <th className="p-3">Status</th>
+              <th className="p-3">Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              {
+                short: 'https://linkly.com/Bn14aCOlnxj',
+                original: 'https://twitter.com/tweets/8erelCoihu/',
+                clicks: 1313,
+                status: 'Active',
+                date: 'Oct - 10 - 2023',
+              },
+              {
+                short: 'https://linkly.com/Bn14aCOlnxj',
+                original: 'https://www.youtube.com/watch?v=8J7zrnHOXuk',
+                clicks: 4313,
+                status: 'Inactive',
+                date: 'Oct - 08 - 2023',
+              },
+              {
+                short: 'https://linkly.com/Bn14aCOlnxj',
+                original: 'https://www.adventuresinwanderlust.com/',
+                clicks: 1013,
+                status: 'Active',
+                date: 'Oct - 01 - 2023',
+              },
+              {
+                short: 'https://linkly.com/Bn14aCOlnxj',
+                original: 'https://vimeo.com/625257654',
+                clicks: 1313,
+                status: 'Active',
+                date: 'Sep - 20 - 2023',
+              },
+              {
+                short: 'https://linkly.com/Bn14aCOlnxj',
+                original: 'https://unsplash.com/photos/2KjNw0zF1vQ',
+                clicks: 1423,
+                status: 'Active',
+                date: 'Sep - 18 - 2023',
+              },
+            ].map((row, i) => (
+              <tr key={i} className="border-b border-gray-700">
+                <td className="p-3 text-blue-400 underline cursor-pointer">{row.short}</td>
+                <td className="p-3 text-white truncate max-w-xs">{row.original}</td>
+                <td className="p-3">
+                  <QrCode className="w-4 h-4 text-gray-400" />
+                </td>
+                <td className="p-3">{row.clicks}</td>
+                <td className="p-3">
+                  <span className={`px-2 py-1 rounded-full text-xs ${row.status === 'Active' ? 'bg-green-800 text-green-400' : 'bg-yellow-800 text-yellow-400'}`}>{row.status}</span>
+                </td>
+                <td className="p-3 text-gray-400">{row.date}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  )
+}
+
+export default Landing

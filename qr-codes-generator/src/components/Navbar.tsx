@@ -4,7 +4,7 @@ import Logo from './Logo';
 
 const Navbar: React.FC = () => {
   return (
-    <nav className="bg-white shadow p-4 flex justify-between items-center">
+    <nav className="bg-gray-900 shadow p-4 flex justify-between items-center">
       <Link to="/">
         <Logo />
       </Link>
