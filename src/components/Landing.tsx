@@ -10,7 +10,7 @@ const Landing: React.FC = () => {
           Shorten Your Loooong Links :)
         </h1>
 
-        <p className="mt-2 text-gray-400 text-xs xs:w-10 sm:w-0.5 sm:text-base md:max-w-2xl mx-auto">
+        <p className="mt-2 text-gray-400 text-xs xs:w-10 sm:text-base md:max-w-2xl mx-auto">
           Linkly is an efficient and easy-to-use URL shortening and QR code generation service that streamlines your online experience.
         </p>
 
@@ -47,7 +47,7 @@ const Landing: React.FC = () => {
       </div>
 
       {/* Table section */}
-      <div className="mt-20 overflow-x-auto px-2 sm:px-0">
+      <div className="mt-20 hidden sm:block overflow-x-auto px-2 sm:px-0 ">
         <table className="w-full text-left text-sm text-gray-300 min-w-[700px]">
           <thead className="bg-[#1a1c2c] text-gray-400">
             <tr>
