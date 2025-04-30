@@ -1,5 +1,5 @@
 import React from 'react'
-import { QrCode, Moon, Sun } from 'lucide-react';
+import { QrCode, Sun } from 'lucide-react';
 // import { Button } from '@/components/ui/button';
 
 const Landing: React.FC = () => {
