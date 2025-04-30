@@ -8,7 +8,7 @@ const Home: React.FC = () => {
     <>
     <div className='bg-gray-900 text-white min-h-svh'>
     <Navbar />
-      <div className=" flex flex-col items-center justify-center mt-16 text-center p-4">
+      <div className=" flex flex-col items-center justify-center md:mt-16 text-center p-4">
       
        <Landing /> 
       </div>

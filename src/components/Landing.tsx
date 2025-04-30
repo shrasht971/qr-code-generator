@@ -1,24 +1,27 @@
-import React from 'react'
+import React from 'react';
 import { QrCode, Sun } from 'lucide-react';
-// import { Button } from '@/components/ui/button';
 
 const Landing: React.FC = () => {
   return (
-    <div>
-       {/* Main section */}
-       <div className="text-center ">
-        <h1 className="text-5xl font-bold mb-6 bg-gradient-to-tl from-indigo-800 to-rose-700 text-transparent bg-clip-text">Shorten Your Loooong Links :)</h1>
-              <p className="mt-4 text-gray-400 text-sm sm:text-base max-w-2xl mx-auto">
-              Linkly is an efficient and easy-to-use URL shortening and QR code generation service that streamlines your online experience.
-              </p>
+    <div className="px-4 sm:px-8 md:px-20 py-6 w-full">
+      {/* Main section */}
+      <div className="text-center">
+        <h1 className="text-xs xs:text-sm sm:text-xl md:text-3xl font-bold mb-4 bg-gradient-to-tl from-indigo-800 to-rose-700 text-transparent bg-clip-text">
+          Shorten Your Loooong Links :)
+        </h1>
+
+        <p className="mt-2 text-gray-400 text-xs xs:w-10 sm:w-0.5 sm:text-base md:max-w-2xl mx-auto">
+          Linkly is an efficient and easy-to-use URL shortening and QR code generation service that streamlines your online experience.
+        </p>
+
         {/* Input field */}
-        <div className="mt-10 max-w-2xl mx-auto flex flex-col sm:flex-row items-center gap-4">
+        <div className="mt-8 w-full max-w-md md:max-w-2xl mx-auto flex flex-col sm:flex-row items-center gap-4">
           <input
             type="text"
             placeholder="Enter the link here"
-            className="w-full flex-1 rounded-full bg-[#1a1c2c] text-white px-5 py-3 focus:outline-none border border-gray-700"
+            className="w-full flex-1 text-sm rounded-full bg-[#1a1c2c] text-white px-5 py-3 focus:outline-none border border-gray-700 "
           />
-          <button className="bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-full shadow-xl text-sm">
+          <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-full shadow-xl text-sm sm:text-base xs:w-6">
             Shorten Now!
           </button>
         </div>
@@ -34,8 +37,8 @@ const Landing: React.FC = () => {
       </div>
 
       {/* Theme switch and sidebar */}
-      <div className="fixed right-4 top-1/2 transform -translate-y-1/2 space-y-4 hidden sm:block">
-        <button className="border rounded-full px-2 py-1 text-sm flex items-center gap-1">
+      <div className="fixed bottom-4 right-4 sm:top-1/2 sm:bottom-auto transform sm:-translate-y-1/2 flex sm:flex-col gap-2 sm:gap-4">
+        <button className="border rounded-full px-3 py-1 text-sm flex items-center gap-1 text-white">
           <Sun size={14} /> Light
         </button>
         <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full shadow-xl text-sm">
@@ -44,16 +47,16 @@ const Landing: React.FC = () => {
       </div>
 
       {/* Table section */}
-      <div className="mt-20 overflow-x-auto">
-        <table className="w-full text-left text-sm text-gray-300">
+      <div className="mt-20 overflow-x-auto px-2 sm:px-0">
+        <table className="w-full text-left text-sm text-gray-300 min-w-[700px]">
           <thead className="bg-[#1a1c2c] text-gray-400">
             <tr>
-              <th className="p-3">Short Link</th>
-              <th className="p-3">Original Link</th>
-              <th className="p-3">QR Code</th>
-              <th className="p-3">Clicks</th>
-              <th className="p-3">Status</th>
-              <th className="p-3">Date</th>
+              <th className="p-2 sm:p-3">Short Link</th>
+              <th className="p-2 sm:p-3">Original Link</th>
+              <th className="p-2 sm:p-3">QR Code</th>
+              <th className="p-2 sm:p-3">Clicks</th>
+              <th className="p-2 sm:p-3">Status</th>
+              <th className="p-2 sm:p-3">Date</th>
             </tr>
           </thead>
           <tbody>
@@ -95,24 +98,23 @@ const Landing: React.FC = () => {
               },
             ].map((row, i) => (
               <tr key={i} className="border-b border-gray-700">
-                <td className="p-3 text-blue-400 underline cursor-pointer">{row.short}</td>
-                <td className="p-3 text-white truncate max-w-xs">{row.original}</td>
-                <td className="p-3">
+                <td className="p-2 sm:p-3 text-blue-400 underline cursor-pointer">{row.short}</td>
+                <td className="p-2 sm:p-3 text-white truncate xs:min-w-xs md:max-w-xs">{row.original}</td>
+                <td className="p-2 sm:p-3">
                   <QrCode className="w-4 h-4 text-gray-400" />
                 </td>
-                <td className="p-3">{row.clicks}</td>
-                <td className="p-3">
-                  <span className={`px-2 py-1 rounded-full text-xs ${row.status === 'Active' ? 'bg-green-800 text-green-400' : 'bg-yellow-800 text-yellow-400'}`}>{row.status}</span>
+                <td className="p-2 sm:p-3">{row.clicks}</td>
+                <td className="p-2 sm:p-3">
+                  <span className={`px-2 py-1 rounded-full sm:text-xs ${row.status === 'Active' ? 'bg-green-800 text-green-400' : 'bg-yellow-800 text-yellow-400'}`}>{row.status}</span>
                 </td>
-                <td className="p-3 text-gray-400">{row.date}</td>
+                <td className="p-2 sm:p-3 text-gray-400">{row.date}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default Landing
+export default Landing;
