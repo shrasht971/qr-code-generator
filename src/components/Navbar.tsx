@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import Logo from './Logo';
+import Login from '../pages/Login';
+import Signup from '../pages/Signup';
 
 const Navbar: React.FC = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -21,27 +23,14 @@ const Navbar: React.FC = () => {
 
   const LoginForm = () => (
     <form>
-      <h2 className="text-2xl font-bold mb-4">Login</h2>
-      <input type="email" placeholder="Email" className="w-full mb-3 p-2 border rounded" />
-      <input type="password" placeholder="Password" className="w-full mb-4 p-2 border rounded" />
-      <button className="w-full bg-blue-600 text-white py-2 rounded">Log In</button>
+      <Login />
     </form>
   );
 
   const SignupForm = () => (
     <form>
-      <div className="text-3xl text-center font-bold mb-4">
-        <Logo />
-      </div>
-      <h1 className='text-center text-gray-800 text-xl font-bold'>
-        Create, Manage and Track <span className='text-cyan-900'>all your QR Codes</span> in one place
-      </h1>
-      <h6 className='text-center font-light text-xs mt-5 mb-4'>
-        Sign up now and try all features free for 14 days
-      </h6>
-      <input type="email" placeholder="Work Email" className="w-full mb-3 p-2 border rounded" />
-      <input type="password" placeholder="Password" className="w-full mb-4 p-2 border rounded" />
-      <button className="w-full bg-blue-600 text-white py-2 rounded">Sign Up Now</button>
+   <Signup />
+      
     </form>
   );
 
