@@ -1,11 +1,11 @@
 import React from "react";
 
-interface LoginModalProps {
+interface LoginProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
+const Login: React.FC<LoginProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
@@ -21,4 +21,4 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
   );
 };
 
-export default LoginModal;
+export default Login;
