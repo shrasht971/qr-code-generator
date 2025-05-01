@@ -6,7 +6,7 @@ import Landing from '../components/Landing';
 const Home: React.FC = () => {
   return (
     <>
-    <div className='bg-gray-900 text-white min-h-svh'>
+    <div className='bg-gray-900  min-h-svh'>
     <Navbar />
       <div className=" flex flex-col items-center justify-center md:mt-16 text-center p-4">
       
