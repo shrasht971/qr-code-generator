@@ -1,19 +1,32 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { QrCode, Sun, Moon } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Landing: React.FC = () => {
+  const [isClicked, setIsClicked] = useState(0);
+  const inputRef = useRef(0);
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    inputRef.current += 1;
+    setIsClicked(inputRef.current);
+    if (inputRef.current >= 5) {
+      setIsClicked(0);
+      inputRef.current = 0;
+      navigate("/Signup");
+    }
+  };
+
   return (
     <div className="px-4 sm:px-8 md:px-20 py-6 w-full">
       {/* Main section */}
       <div className="text-center">
-      <h1 className="text-xl md:text-4xl py-2 font-bold mb-4 bg-gradient-to-tl from-indigo-800 to-rose-700 text-transparent bg-clip-text break-words text-center px-2">
-  Shorten Your Loooong Links :)
-</h1>
+        <h1 className="text-xl md:text-4xl py-2 font-bold mb-4 bg-gradient-to-tl from-indigo-800 to-rose-700 text-transparent bg-clip-text break-words text-center px-2">
+          Shorten Your Loooong Links :)
+        </h1>
 
-
-        <p className="mt-2 text-gray-400 text-xs xs:w-10 sm:text-base md:max-w-2xl mx-auto">
-          Linkly is an efficient and easy-to-use URL shortening and QR code
-          generation service that streamlines your online experience.
+        <p className="mt-2 text-gray-400 text-xs sm:text-base md:max-w-2xl mx-auto">
+          Linkly is an efficient and easy-to-use URL shortening and QR code generation service that streamlines your online experience.
         </p>
 
         {/* Input field */}
@@ -21,22 +34,24 @@ const Landing: React.FC = () => {
           <input
             type="text"
             placeholder="Enter the link here"
-            className="w-full flex-1 text-sm rounded-full bg-[#1a1c2c] text-white px-5 py-3 focus:outline-none border border-gray-700 "
+            className="w-full flex-1 text-sm rounded-full bg-[#1a1c2c] text-white px-5 py-3 focus:outline-none border border-gray-700"
           />
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-full shadow-xl text-sm sm:text-base xs:w-6">
+          <button
+            onClick={handleClick}
+            disabled={isClicked >= 5}
+            className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-full shadow-xl text-sm sm:text-base"
+          >
             Shorten Now!
           </button>
         </div>
 
         <div className="flex justify-center items-center gap-2 mt-4">
           <div className="w-5 h-5 rounded-full bg-blue-600"></div>
-          <span className="text-sm text-gray-400">
-            Auto Paste from Clipboard
-          </span>
+          <span className="text-sm text-gray-400">Auto Paste from Clipboard</span>
         </div>
 
         <p className="mt-4 text-sm text-gray-400">
-          You can create <span className="text-pink-500 font-semibold">05</span>{" "}
+          You can create <span className="text-pink-500 font-semibold">{5 - isClicked}</span>{" "}
           more links.{" "}
           <span className="underline cursor-pointer text-blue-400">
             Register
@@ -46,18 +61,17 @@ const Landing: React.FC = () => {
       </div>
 
       {/* Theme switch and sidebar */}
-      <div className="fixed bottom-4 right-4 sm:top-1/2 sm:bottom-auto transform sm:-translate--1/2 flex flex-col gap-2 sm:gap-4">
-  <button className="border rounded-full px-3 py-1 text-sm flex items-center gap-1 text-white">
-    <Sun size={14} /> Light
-  </button>
-  <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full shadow-xl text-sm flex items-center gap-1">
-    <Moon size={14} /> Dark Theme
-  </button>
-</div>
-
+      <div className="fixed bottom-4 right-4 sm:top-1/2 sm:bottom-auto transform sm:-translate-y-1/2 flex flex-col gap-2 sm:gap-4">
+        <button className="border rounded-full px-3 py-1 text-sm flex items-center gap-1 text-white">
+          <Sun size={14} /> Light
+        </button>
+        <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full shadow-xl text-sm flex items-center gap-1">
+          <Moon size={14} /> Dark Theme
+        </button>
+      </div>
 
       {/* Table section */}
-      <div className="mt-20 hidden sm:block overflow-x-auto px-2 sm:px-0 ">
+      <div className="mt-20 hidden sm:block overflow-x-auto px-2 sm:px-0">
         <table className="w-full text-left text-sm text-gray-300 min-w-[700px]">
           <thead className="bg-[#1a1c2c] text-gray-400">
             <tr>

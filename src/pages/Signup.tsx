@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "../components/Logo";
 
+
 const Signup: React.FC = () => {
   return (
     <div className="fixed inset-0 bg-black flex items-center justify-center">
@@ -25,7 +26,7 @@ const Signup: React.FC = () => {
       id="terms"
       className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mx-1"
     />
-    <label htmlFor="terms" className="text-gray-700  ">I agree with the <a href="#" className="text-blue-600  text-xs sm:text-sm underline">Terms of service , Privacy Policy , Acceptable Use Policy and Data Processing Agreement.
+    <label htmlFor="terms" className="text-gray-700 mr-1 ">+I agree with the <a href="#" className="text-blue-600  text-xs sm:text-sm underline">Terms of service , Privacy Policy , Acceptable Use Policy and Data Processing Agreement.
   </a>
     </label>
     
