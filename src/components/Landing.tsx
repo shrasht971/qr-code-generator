@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
-import { QrCode, Sun, Moon } from "lucide-react";
+import ThemeSwitch from "./ThemeSwitch";
+import { QrCode } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const Landing: React.FC = () => {
@@ -53,23 +54,14 @@ const Landing: React.FC = () => {
         <p className="mt-4 text-sm text-gray-400">
           You can create <span className="text-pink-500 font-semibold">{5 - isClicked}</span>{" "}
           more links.{" "}
-          <span className="underline cursor-pointer text-blue-400">
-            Register
+          <span className='underline cursor-pointer text-blue-400 ' onClick={() => navigate("/Signup")}>
+            Register 
           </span>{" "}
           now to enjoy Unlimited usage ⚡
         </p>
       </div>
-
-      {/* Theme switch and sidebar */}
-      <div className="fixed bottom-4 right-4 sm:top-1/2 sm:bottom-auto transform sm:-translate-y-1/2 flex flex-col gap-2 sm:gap-4">
-        <button className="border rounded-full px-3 py-1 text-sm flex items-center gap-1 text-white">
-          <Sun size={14} /> Light
-        </button>
-        <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full shadow-xl text-sm flex items-center gap-1">
-          <Moon size={14} /> Dark Theme
-        </button>
-      </div>
-
+      
+      <ThemeSwitch />
       {/* Table section */}
       <div className="mt-20 hidden sm:block overflow-x-auto px-2 sm:px-0">
         <table className="w-full text-left text-sm text-gray-300 min-w-[700px]">
