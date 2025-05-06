@@ -1,22 +1,15 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import ThemeSwitch from "./ThemeSwitch";
 import { QrCode } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const Landing: React.FC = () => {
-  const [isClicked, setIsClicked] = useState(0);
-  const inputRef = useRef(0);
+  const [isClicked, setIsClicked] = useState<number>(Number(localStorage.getItem("Clicked"))|| 5);
+  
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    inputRef.current += 1;
-    setIsClicked(inputRef.current);
-    if (inputRef.current >= 5) {
-      setIsClicked(0);
-      inputRef.current = 0;
-      navigate("/Signup");
-    }
-  };
+
+
 
   return (
     <div className="px-4 sm:px-8 md:px-20 py-6 w-full">
@@ -38,8 +31,15 @@ const Landing: React.FC = () => {
             className="w-full flex-1 text-sm rounded-full bg-[#1a1c2c] text-white px-5 py-3 focus:outline-none border border-gray-700"
           />
           <button
-            onClick={handleClick}
-            disabled={isClicked >= 5}
+           onClick={() =>  {
+            if(isClicked <=0){
+              navigate("/Signup")
+            return;
+           }
+            setIsClicked((prev)=> prev -1)
+            localStorage.setItem("Clicked" , String(isClicked -1)  )
+           }}
+            
             className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-full shadow-xl text-sm sm:text-base"
           >
             Shorten Now!
@@ -52,7 +52,7 @@ const Landing: React.FC = () => {
         </div>
 
         <p className="mt-4 text-sm text-gray-400">
-          You can create <span className="text-pink-500 font-semibold">{5 - isClicked}</span>{" "}
+          You can create <span className="text-pink-500 font-semibold">{ isClicked}</span>{" "}
           more links.{" "}
           <span className='underline cursor-pointer text-blue-400 ' onClick={() => navigate("/Signup")}>
             Register 

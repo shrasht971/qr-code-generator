@@ -1,12 +1,17 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
+import React  from "react";
 import Logo from "../components/Logo";
 
 
 const Signup: React.FC = () => {
+  const navigate = useNavigate();
+  const handleClose =() =>{
+    navigate("/")
+  }
   return (
     <div className="fixed inset-0 bg-black flex items-center justify-center">
       <div className="bg-white p-6 rounded shadow-md w-full max-w-md relative">
-        <button className="absolute top-2 right-3 text-gray-600 text-xl">
+        <button className="absolute top-2 right-3 text-gray-600 text-xl" onClick={() => handleClose()}>
           &times;
         </button>
         <div className="text-4xl flex justify-center font-bold mb-4">

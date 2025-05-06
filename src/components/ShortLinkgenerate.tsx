@@ -7,10 +7,10 @@ const ShortLinkGenerator: React.FC = () => {
   const [shortLinks, setShortLinks] = useState<string[]>([]);
 
   // Load guest link count from localStorage on mount
-  useEffect(() => {
-    const count = parseInt(localStorage.getItem("guestLinkCount") || "0", 10);
-    setGuestLinkCount(count);
-  }, []);
+  // useEffect(() => {
+  //   const count = parseInt(localStorage.getItem("guestLinkCount") || "0", 10);
+  //   setGuestLinkCount(count);
+  // }, []);
 
   const generateShortLink = () => {
     const originalUrl = inputRef.current?.value;
