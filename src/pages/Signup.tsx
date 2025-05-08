@@ -25,17 +25,7 @@ const Signup: React.FC = () => {
       </h6>
       <input type="email" placeholder="Work Email" className="w-full mb-3 p-2 border rounded" />
       <input type="password" placeholder="Password" className="w-full mb-4 p-2 border rounded" />
-      <div className="flex justify-between ">
-    <input
-      type="checkbox"
-      id="terms"
-      className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 mx-1"
-    />
-    <label htmlFor="terms" className="text-gray-700 mr-1 ">+I agree with the <a href="#" className="text-blue-600  text-xs sm:text-sm underline">Terms of service , Privacy Policy , Acceptable Use Policy and Data Processing Agreement.
-  </a>
-    </label>
     
-  </div>
 
   <button className="w-full bg-blue-600 text-white py-2 rounded">Sign Up Now</button>
 </div>
